@@ -1,6 +1,6 @@
 " Copylift(c) 
 " Author <lilijreey@gmail.com>
-" Source repository: https://github.com/Lokaltog/vim-easymotion
+" Source repository: https://github.com/lilijreey/vim-highlight-cursor-word
 
 " This is a simple plugin that highligh all same as cursor word.
 
@@ -86,14 +86,14 @@ fun s:CursorUnderWord()
      let cursorChar = getline('.')[col('.')-1] 
      let cursorCharNum = char2nr(cursorChar)
 
-     " check char is in set [0-9,a-z,A-Z, g:hicursor_include_chars] 
+     " check char is in set [0-9,a-z,A-Z, g:hcw_hicursor_include_chars] 
      if  (cursorCharNum >= 48 && cursorCharNum <= 57)
          return 1
      elseif (cursorCharNum >= 65 && cursorCharNum <= 90) 
          return 1
      elseif (cursorCharNum >= 97 && cursorCharNum <= 122) 
          return 1
-     elseif (0 != count(g:hicursor_include_chars, cursorChar))
+     elseif (0 != count(g:hcw_hicursor_include_chars, cursorChar))
          return 1
      else
          return 0
